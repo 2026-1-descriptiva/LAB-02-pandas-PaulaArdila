@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
 
 def pregunta_09():
     """
@@ -23,3 +24,12 @@ def pregunta_09():
     39  39  E   5  1998-01-26  1998
 
     """
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    # Extraer el año desde la columna de fecha
+    df["year"] = df["c3"].str.split("-").str[0]
+
+    return df
+
+if __name__ == "__main__":
+   df = pregunta_09()
+   print(df)
